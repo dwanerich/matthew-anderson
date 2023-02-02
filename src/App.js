@@ -1,5 +1,5 @@
 import './App.css';
-import Contact from './Contact';
+// import Contact from './Contact';
 import Nav from './Nav';
 import Work from './Work';
 
@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Nav />
       <Work />
-      <Contact />
+      {/* <Contact /> */}
     </div>
   );
 }
