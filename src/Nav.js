@@ -1,11 +1,13 @@
+import { WORK, BOOK, CONTACT } from './routeConstants'
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { Link } from 'react-router-dom';
 // import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'work', href: '#', current: true },
-  { name: 'book', href: '#', current: false },
-  { name: 'contact', href: '#', current: false },
+  { name: 'work', Link: WORK, current: true },
+  { name: 'book', Link: BOOK, current: false },
+  { name: 'contact', Link: CONTACT, current: false },
 ];
 
 function classNames(...classes) {
@@ -34,9 +36,9 @@ const Nav = () => {
                 <div className="hidden sm:ml-6 sm:flex justify-between align-center w-full">
                   <div className="flex space-x-4 justify-between align-center py-6">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.Link}
                         className={classNames(
                           item.current
                             ? 'text-purple-500'
@@ -46,13 +48,13 @@ const Nav = () => {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   <h1 className="my-8 text-xl">
-                    <a href={'/'} className={classNames('text-black')}>
+                    <Link to={'/'} className={classNames('text-black')}>
                       Matthew Anderson
-                    </a>
+                    </Link>
                   </h1>
                 </div>
               </div>
@@ -73,41 +75,41 @@ const Nav = () => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="!#"
+                          <Link
+                            to="!#"
                             className={classNames(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
                           >
                             Your Profile
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="!#"
+                          <Link
+                            to="!#"
                             className={classNames(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
                           >
                             Settings
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="!#"
+                          <Link
+                            to="!#"
                             className={classNames(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -122,26 +124,27 @@ const Nav = () => {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                >
+                  <Link
+                  to={item.Link}
                   className={classNames(
                     item.current
                       ? 'text-purple-500 w-24'
                       : 'text-black-300 hover:text-purple-500',
                     'px-3 py-2 rounded-md text-lg font-medium h-10 mx-auto'
                   )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
+                  aria-current={item.current ? 'page' : undefined}>
+
+                  </Link>
                 </Disclosure.Button>
               ))}
             </div>
           </Disclosure.Panel>
 
           <h1 className="sm:hidden my-8 text-2xl">
-            <a href={'/'} className={classNames('text-black')}>
+            <Link to={'/'} className={classNames('text-black')}>
               Matthew Anderson
-            </a>
+            </Link>
           </h1>
         </>
       )}
