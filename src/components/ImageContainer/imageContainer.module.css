@@ -1,0 +1,37 @@
+.imageContainer {
+  position: relative;
+  height: auto;
+  background: red;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+.imageContainer > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(130, 130, 243);
+  width: 100%;
+  opacity: 0.5;
+  visibility: hidden;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageContainer:hover > div {
+  visibility: visible;
+}
+
+.imageContainer > div > button {
+  min-width: 150px;
+  border: 2px solid white;
+  min-height: 50px;
+  color: white;
+  font-weight: bold;
+  opacity: 1;
+}

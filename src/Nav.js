@@ -1,15 +1,15 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Fragment } from 'react';
+import { Disclosure, Menu, Transition } from '@headlessui/react';
 // import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'work', href: '#', current: true },
   { name: 'book', href: '#', current: false },
   { name: 'contact', href: '#', current: false },
-]
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 const Nav = () => {
@@ -17,38 +17,31 @@ const Nav = () => {
     <Disclosure as="nav" className="bg-white-800">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl h-16">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-transparent hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <h2 class="text-2xl font-bold text-yellow-400 aria-hidden=true">close</h2>
-
-                  ) : (
-                    <h2 class="text-2xl font-bold text-gray-900 aria-hidden=true">menu</h2>
-
-                  )}
-                </Disclosure.Button>
-                  <img
-                    className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
+                  <Disclosure.Button className="flex flex-col inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-transparent hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    <span className="sr-only">Open main menu</span>
+                    <h2 class="text-lg font-bold text-gray-900 aria-hidden=true sm:hidden">
+                      menu
+                    </h2>
+                  </Disclosure.Button>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
+                <div className="hidden sm:ml-6 sm:flex justify-between align-center w-full">
+                  <div className="flex space-x-4 justify-between align-center py-6">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          item.current
+                            ? 'text-purple-500'
+                            : 'text-black-300 hover:text-purple-500',
+                          'px-3 py-2 rounded-md text-sm font-medium h-10 '
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -56,15 +49,18 @@ const Nav = () => {
                       </a>
                     ))}
                   </div>
+                  <h1 className="my-8 text-xl">
+                    <a href={'/'} className={classNames('text-black')}>
+                      Matthew Anderson
+                    </a>
+                  </h1>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
-                  <div>
-
-                  </div>
+                  <div></div>
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
@@ -78,8 +74,11 @@ const Nav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            href="!#"
+                            className={classNames(
+                              active ? 'bg-gray-100' : '',
+                              'block px-4 py-2 text-sm text-gray-700'
+                            )}
                           >
                             Your Profile
                           </a>
@@ -88,8 +87,11 @@ const Nav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            href="!#"
+                            className={classNames(
+                              active ? 'bg-gray-100' : '',
+                              'block px-4 py-2 text-sm text-gray-700'
+                            )}
                           >
                             Settings
                           </a>
@@ -98,8 +100,11 @@ const Nav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            href="!#"
+                            className={classNames(
+                              active ? 'bg-gray-100' : '',
+                              'block px-4 py-2 text-sm text-gray-700'
+                            )}
                           >
                             Sign out
                           </a>
@@ -110,19 +115,20 @@ const Nav = () => {
                 </Menu>
               </div>
             </div>
-              <h1 style={{color: "white"}}>MATTHEW ANDERSON</h1>
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pt-2 pb-3">
+            <div className="space-y-1 px-2 pt-2 pb-3 flex flex-col">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? 'text-purple-500 w-24'
+                      : 'text-black-300 hover:text-purple-500',
+                    'px-3 py-2 rounded-md text-lg font-medium h-10 mx-auto'
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
@@ -131,9 +137,15 @@ const Nav = () => {
               ))}
             </div>
           </Disclosure.Panel>
+
+          <h1 className="sm:hidden my-8 text-2xl">
+            <a href={'/'} className={classNames('text-black')}>
+              Matthew Anderson
+            </a>
+          </h1>
         </>
       )}
     </Disclosure>
-  )
-}
+  );
+};
 export default Nav;
