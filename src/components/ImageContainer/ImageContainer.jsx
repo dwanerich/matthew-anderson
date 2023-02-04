@@ -5,7 +5,7 @@ const ImageContainer = ({ image, id }) => {
     <section className={`relative w-full h-auto ${classes.imageContainer}`}>
       <img src={image} alt={`design-${id}`} className={`${classes.image}`} />
       <div className="cursor-pointer">
-        <button>View</button>
+        <button> view </button>
       </div>
     </section>
   );

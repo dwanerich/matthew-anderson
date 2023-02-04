@@ -1,4 +1,4 @@
-import { WORK, BOOK, CONTACT } from './routeConstants'
+import { WORK, CONTACT } from './routeConstants'
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Link } from 'react-router-dom';
@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'work', Link: WORK, current: true },
-  { name: 'book', Link: BOOK, current: false },
-  { name: 'contact', Link: CONTACT, current: false },
+  // { name: 'book', href: BOOK, current: false },
+  { name: 'contact', href: CONTACT, current: false },
 ];
 
 function classNames(...classes) {
@@ -38,7 +38,7 @@ const Nav = () => {
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
-                        to={item.Link}
+                        to={item.name}
                         className={classNames(
                           item.current
                             ? 'text-purple-500'
@@ -73,43 +73,31 @@ const Nav = () => {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      
                       <Menu.Item>
                         {({ active }) => (
-                          <Link
-                            to="!#"
-                            className={classNames(
-                              active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700'
-                            )}
-                          >
-                            Your Profile
-                          </Link>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to="!#"
+                          <a
+                            href="!#"
                             className={classNames(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
                           >
                             Settings
-                          </Link>
+                          </a>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <Link
-                            to="!#"
+                          <a
+                            href="!#"
                             className={classNames(
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm text-gray-700'
                             )}
                           >
                             Sign out
-                          </Link>
+                          </a>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -124,27 +112,26 @@ const Nav = () => {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                >
-                  <Link
-                  to={item.Link}
+                  as="a"
+                  href={item.href}
                   className={classNames(
                     item.current
                       ? 'text-purple-500 w-24'
                       : 'text-black-300 hover:text-purple-500',
                     'px-3 py-2 rounded-md text-lg font-medium h-10 mx-auto'
                   )}
-                  aria-current={item.current ? 'page' : undefined}>
-
-                  </Link>
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
                 </Disclosure.Button>
               ))}
             </div>
           </Disclosure.Panel>
 
           <h1 className="sm:hidden my-8 text-2xl">
-            <Link to={'/'} className={classNames('text-black')}>
+            <a href={'/'} className={classNames('text-black')}>
               Matthew Anderson
-            </Link>
+            </a>
           </h1>
         </>
       )}
