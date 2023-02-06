@@ -1,27 +1,43 @@
-import Masonry from 'react-responsive-masonry';
-import { ResponsiveMasonry } from 'react-responsive-masonry';
-import ImageContainer from './components/ImageContainer/ImageContainer';
-import { images } from './portfolio/index';
+import React from "react";
+import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+import "./App.css";
+import { images } from './portfolio/index'
+import'./index.css'
 
-// images = [
-//   "https://drive.google.com/file/d/1Db9uTAG0sqCK5KIqY4PWTU8LqgYdlPzF/view?usp=share_link",
-//   "https://cdn.pixabay.com/photo/2020/11/08/09/41/deer-5723225_1280.jpg",
-//   "https://images.unsplash.com/photo-1661961110372-8a7682543120?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-// ]
-
-const columnsCountBreakPoints = { 350: 1, 750: 2, 900: 3 };
+SwiperCore.use([EffectCoverflow, Pagination]);
 
 const Work = () => {
   return (
-    <div class="container">
-      <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
-        <Masonry gutter={4}>
-          {images.map((image, id) => (
-            <ImageContainer image={image} id={id} key={id} />
-          ))}
-        </Masonry>
-      </ResponsiveMasonry>
+    <div>
+      <Swiper className='swiper'
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true
+        }}
+        pagination={true}
+        class='mySwiper'
+      >
+
+        {images.map((img, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <img src={img} alt="" class='swiper'/>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
     </div>
   );
 };
+
 export default Work;
