@@ -17,9 +17,9 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 0;
-  background: rgb(130, 130, 243);
+  background: rgb(201, 194, 88);
   width: 100%;
-  opacity: .5;
+  opacity: 0.5;
   visibility: hidden;
   height: 0%;
   display: flex;
@@ -32,25 +32,22 @@
   transition: all 1s ease;
 }
 .imageContainer:hover > div {
-
   visibility: visible;
   height: 100%;
   width: 100%;
 
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 .imageContainer > div > button {
   min-width: 150px;
-  border: .75px solid white;
+  border: 0.75px solid white;
   min-height: 50px;
   color: white;
-  /* font-weight: bold; */
-  font-size: x-large;
+  font-size: large;
   opacity: 25;
 }
