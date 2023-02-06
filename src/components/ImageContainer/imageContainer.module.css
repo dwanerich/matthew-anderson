@@ -5,7 +5,7 @@
 
 .image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   border-color: transparent;
@@ -17,7 +17,7 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 0;
-  background: rgb(130, 130, 243);
+  background: rgb(157, 157, 90);
   width: 100%;
   opacity: .5;
   visibility: hidden;
@@ -51,6 +51,6 @@
   min-height: 50px;
   color: white;
   /* font-weight: bold; */
-  font-size: x-large;
-  opacity: 25;
+  font-size: large;
+  /* opacity: 25; */
 }
