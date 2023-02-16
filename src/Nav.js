@@ -1,4 +1,4 @@
-import { WORK, CONTACT } from './routeConstants';
+import { WORK, ABOUT, CONTACT } from './routeConstants';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'Work', Link: WORK, current: false },
+  { name: 'About', Link: ABOUT, current: false },
+
   { name: 'Contact', href: CONTACT, current: false },
 ];
 
