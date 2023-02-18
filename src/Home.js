@@ -8,7 +8,7 @@ const columnsCountBreakPoints = { 350: 1, 750: 2, 900: 3, 1024: 4 };
 
 const Home = () => {
   return (
-    <div class="w-full mx-auto">
+    <div className="w-full mx-auto">
       <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
         <Masonry gutter={'0'}>
           {images.map((image, id) => (

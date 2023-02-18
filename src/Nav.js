@@ -28,7 +28,7 @@ const Nav = () => {
                 <div className="flex flex-shrink-0 items-center">
                   <Disclosure.Button className="flex flex-col inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-transparent hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
-                    <h2 class="text-lg font-bold text-gray-900 aria-hidden=true sm:hidden">
+                    <h2 className="text-lg font-bold text-gray-900 aria-hidden=true sm:hidden">
                       menu
                     </h2>
                   </Disclosure.Button>
