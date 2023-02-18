@@ -11,6 +11,8 @@ import PNG10  from "./10.PNG"
 import PNG11 from "./11.PNG"
 import PNG12 from "./12.PNG"
 
+
+
 export const images = [
   PNG1,
   PNG2,
