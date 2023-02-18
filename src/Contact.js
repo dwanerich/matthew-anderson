@@ -15,7 +15,7 @@ const Contact = () => {
           <form class="space-y-8 flex flex-col">
             <div>
               <label
-                for="email"
+                htmlFor="email"
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Name

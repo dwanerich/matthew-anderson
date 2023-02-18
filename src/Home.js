@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div class="w-full mx-auto">
       <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
-        <Masonry gutter={0}>
+        <Masonry gutter={'0'}>
           {images.map((image, id) => (
             <ImageContainer image={image} id={id} key={id} />
           ))}

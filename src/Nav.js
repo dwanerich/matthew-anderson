@@ -1,12 +1,12 @@
 import { WORK, CONTACT } from './routeConstants';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'Work', Link: WORK, current: false },
-  { name: 'Contact', href: CONTACT, current: false },
+  { name: 'Contact', Link: CONTACT, current: false },
 ];
 
 function classNames(...classes) {
@@ -14,6 +14,7 @@ function classNames(...classes) {
 }
 
 const Nav = () => {
+  const location = useLocation().pathname;
   return (
     <Disclosure as="nav" className="bg-white-800">
       {({ open }) => (
@@ -37,9 +38,9 @@ const Nav = () => {
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
-                        to={item.name}
+                        to={item.Link}
                         className={classNames(
-                          item.current
+                          location.toLowerCase() === item.Link
                             ? 'text-yellow-500'
                             : 'text-black-300 hover:text-yellow-500',
                           'px-3 py-2 rounded-md text-sm font-medium h-10 '
@@ -111,9 +112,9 @@ const Nav = () => {
                 <Disclosure.Button
                   key={item.name}
                   as="a"
-                  href={item.href}
+                  href={item.Link}
                   className={classNames(
-                    item.current
+                    location.toLowerCase() === item.Link
                       ? 'text-yellow-500 w-24'
                       : 'text-black-300 hover:text-yellow-500',
                     'px-3 py-2 rounded-md text-lg font-medium h-10 mx-auto'
