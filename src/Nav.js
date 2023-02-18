@@ -1,11 +1,11 @@
-import { WORK, CONTACT } from './routeConstants';
+import { ABOUT, CONTACT } from './routeConstants';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Link, useLocation } from 'react-router-dom';
 // import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Work', Link: WORK, current: false },
+  { name: 'About', Link: ABOUT, current: false },
   { name: 'Contact', Link: CONTACT, current: false },
 ];
 
